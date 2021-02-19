@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en"
+    xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:h="http://xmlns.jcp.org/jsf/html"
+    xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
+    xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <h:head>
+        <title>Hello World - Input Form</title>
+        <style>
+        .error{color:red}</style>
+    </h:head>
+    <h:body>
+
+		<h:form>
+		   
+		    First Name: <h:inputText id="firstname" value="#{firstName}" validatorMessage="name min 4 and max 15"
+		    				a:placeholder="What's your firstname?" >
+		    				<f:validateLength minimum="4" maximum="15"></f:validateLength>
+		    				</h:inputText>
+		    				<h:message for="firstname" styleClass="error"/>
+		    				<br/><br/> 
+		    Last Name: <h:inputText id="lastname" value="#{lastName}" 
+		    				a:placeholder="What's your lastname?" /><br/><br/>
+		    Age: <h:inputText id="age" value="#{age}" validatorMessage="age must be in 2 digit"
+		    				a:placeholder="What's your age?" >
+		    				<f:validateLength minimum="2" maximum="3"></f:validateLength>
+		    				</h:inputText>
+		    				<h:message for="age" styleClass="error"/>
+		    				<br/><br/>
+		    Gender: <h:selectOneMenu value="#{gender}" id="gender">
+		            <f:selectItem itemValue="Male" itemLabel="Male" />
+		            <f:selectItem itemValue="Female" itemLabel="Female" />
+		            </h:selectOneMenu><br/><br/>
+		    Email: <h:inputText id="email" value="#{email}" type=''>
+		           <f:validateRegex pattern="^[_A-Za-z0-9-\+]+(\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\.[A-Za-z0-9]+)*(\.[A-Za-z]{2,})$
+		           "></f:validateRegex>
+		          </h:inputText>
+		          <h:message for="email" styleClass="error"/>
+		    
+		    <br/><br/>
+		    Address: <h:inputTextarea id="address" value="#{address}" 
+		    				a:placeholder="Address" /><br/><br/>
+
+		    Submit: <h:commandButton value="Submit"  />
+		    Reset: <h:commandButton value="reset" type="reset"  />
+		</h:form>
+
+    </h:body>
+</html>
+
